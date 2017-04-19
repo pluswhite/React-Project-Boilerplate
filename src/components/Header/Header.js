@@ -14,24 +14,24 @@ class Header extends Component {
     return (
       <div id="indexHeader" className="header">
         <div className="top_bar">
-          <div className="abs_l">
+          {/*<div className="abs_l">
             <a href="#" className="msg_box">
               <FaEnvelopeO size={24} color='white' />
             </a>
-          </div>
+          </div>*/}
           <div className="abs_m">
-            Today Focus
+            React Starter Kit with Redux
             {' '}
-            <FaRefresh style={{
+            {/*<FaRefresh style={{
               fontSize: '12px',
               fontWeight: 'bold'
-            }} />
+            }} />*/}
           </div>
-          <div className="abs_r">
+          {/*<div className="abs_r">
             <Link className="search" to='/account'>
               <FaUser size={24} color='white' />
             </Link>
-          </div>
+          </div>*/}
         </div>
         <Nav />
       </div>

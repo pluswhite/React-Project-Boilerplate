@@ -13,13 +13,16 @@ class Nav extends Component {
     const { authenticated, dispatch } = this.props
     return (
       <div className="top_menu_bar">
-        <div className="top_menu_more">
-          <a href="#" className="more_btn"></a>
-        </div>
         <div className="top_menu_list">
           <IndexLink className="btn" to='/' activeClassName='active'>
             Home
           </IndexLink>
+          <Link className="btn" to='/counter' activeClassName='active'>
+            Counter
+          </Link>
+          <Link className="btn" to='/zen' activeClassName='active'>
+            Zen
+          </Link>
           {!authenticated &&
             <Link className="btn" to='/login' activeClassName='active'>
               Login

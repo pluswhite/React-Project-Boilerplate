@@ -2,6 +2,8 @@
 import auth from 'react-jwt-auth-redux'
 import CoreLayout from '../layouts/CoreLayout'
 import HomeRoute from './Home'
+import CounterRoute from './Counter'
+import ZenRoute from './Zen'
 import RegisterRoute from './Register'
 import LoginRoute from './Login'
 import LogoutRoute from './Logout'
@@ -22,6 +24,8 @@ export const createRoutes = (store) => ({
   component   : CoreLayout,
   indexRoute  : HomeRoute(store),
   childRoutes : [
+    CounterRoute(store),
+    ZenRoute(store),
     LoginRoute(store, authRouteCheck),
     LogoutRoute(store, authRouteCheck),
     AccountRoute(store, authRouteCheck),

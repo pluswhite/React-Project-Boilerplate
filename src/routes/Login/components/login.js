@@ -84,7 +84,7 @@ class Login extends Component {
 			<Grid>
 				<Col md={8}>
 					<Panel><Col xs={10} xsPush={1}>
-            <h3 style={css.panelTitle}>Login with email</h3>
+            <h2 style={css.panelTitle}>Login with email</h2>
 						<Form horizontal>
 							<FormGroup controlId="loginEmail" validationState={this.getValidationState('email')}>
 								<Col componentClass={ControlLabel} sm={2}>

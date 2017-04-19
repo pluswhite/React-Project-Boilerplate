@@ -12,22 +12,24 @@ class Zen extends Component {
   }
 
   render() {
-    // console.log(this.props)
     const { zen, saved, fetchZen, saveCurrentZen } = this.props
-    // console.log(saved)
     return (
       <div>
         <div>
-          <h2 className="zenHeader">
+          <h2>Zen</h2>
+          <p>Example -- Fetch Remote Data</p>
+          <h3 className="zenHeader">
             {zen ? zen.value : ''}
-          </h2>
-          <button className="btn btn-default" onClick={fetchZen}>
-            Fetch a wisdom
-          </button>
-          {' '}
-          <button className="btn btn-default" onClick={saveCurrentZen}>
-            Save
-          </button>
+          </h3>
+          <div>
+            <button className="btn btn-default" onClick={fetchZen}>
+              Fetch a wisdom
+            </button>
+            {' '}
+            <button className="btn btn-default" onClick={saveCurrentZen}>
+              Save
+            </button>
+          </div>
         </div>
         {saved.length ?
           <div className="savedWisdoms">

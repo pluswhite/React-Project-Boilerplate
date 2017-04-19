@@ -93,7 +93,7 @@ class Register extends Component {
 			<Grid>
 				<Col md={8}>
 					<Panel><Col xs={10} xsPush={1}>
-            <h3 style={css.panelTitle}>Register account</h3>
+            <h2 style={css.panelTitle}>Register account</h2>
 						<Form horizontal>
 
 							<FormGroup controlId="signupDisplayName" validationState={this.getValidationState('displayName')}>

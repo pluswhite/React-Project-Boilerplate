@@ -73,91 +73,94 @@ class Account extends Component {
 		let tokenExpiryDate = exp.toUTCString()
 
 		return (
-			<Grid>
-				<Col md={6}>
-					<Panel header="Account details">
-						<Form horizontal>
-							<Col xs={12} sm={4}>
-								<FormGroup controlId="profileImage">
-									<ControlLabel>Avatar</ControlLabel>
-									<div>
-										<img
-											style={{width: '95%'}}
-											src={this.state.picture || defaultPicture}
-										/>
-									</div>
-								</FormGroup>
-							</Col>
+      <div>
+        <h2>Account</h2>
+        <Grid>
+          <Col md={6}>
+            <Panel header="Account details">
+              <Form horizontal>
+                <Col xs={12} sm={4}>
+                  <FormGroup controlId="profileImage">
+                    <ControlLabel>Avatar</ControlLabel>
+                    <div>
+                      <img
+                        style={{width: '95%'}}
+                        src={this.state.picture || defaultPicture}
+                      />
+                    </div>
+                  </FormGroup>
+                </Col>
 
-							<Col xs={12} sm={8}>
-								<FormGroup controlId="profileUsername">
-									<ControlLabel>Name</ControlLabel>
-									<FormControl
-										disabled
-										type="text"
-										placeholder="Display name"
-										value={this.state.displayName}
-										onChange={this.onChange('displayName')}
-									/>
-								</FormGroup>
+                <Col xs={12} sm={8}>
+                  <FormGroup controlId="profileUsername">
+                    <ControlLabel>Name</ControlLabel>
+                    <FormControl
+                      disabled
+                      type="text"
+                      placeholder="Display name"
+                      value={this.state.displayName}
+                      onChange={this.onChange('displayName')}
+                    />
+                  </FormGroup>
 
-								<FormGroup controlId="profileEmail">
-									<ControlLabel>Email</ControlLabel>
-									<FormControl
-										disabled
-										type="email"
-										placeholder="Email"
-										value={this.state.email}
-										onChange={this.onChange('email')}
-									/>
-								</FormGroup>
-							</Col>
+                  <FormGroup controlId="profileEmail">
+                    <ControlLabel>Email</ControlLabel>
+                    <FormControl
+                      disabled
+                      type="email"
+                      placeholder="Email"
+                      value={this.state.email}
+                      onChange={this.onChange('email')}
+                    />
+                  </FormGroup>
+                </Col>
 
-							<Col xs={12}>
-								<FormGroup controlId="profileBio">
-									<ControlLabel>Bio</ControlLabel>
-									<FormControl
-										componentClass="textarea"
-										placeholder="Bio"
-										value={this.state.bio}
-										onChange={this.onChange('bio')}
-									/>
-									<HelpBlock
-										className="pull-right"
-									>{this.state.bioCharsLeft}</HelpBlock>
-								</FormGroup>
+                <Col xs={12}>
+                  <FormGroup controlId="profileBio">
+                    <ControlLabel>Bio</ControlLabel>
+                    <FormControl
+                      componentClass="textarea"
+                      placeholder="Bio"
+                      value={this.state.bio}
+                      onChange={this.onChange('bio')}
+                    />
+                    <HelpBlock
+                      className="pull-right"
+                    >{this.state.bioCharsLeft}</HelpBlock>
+                  </FormGroup>
 
-								<Button
-									bsStyle="primary"
-									className="pull-right"
-									onClick={this.onSubmit}
-								>UpdateInformation</Button>
+                  <Button
+                    bsStyle="primary"
+                    className="pull-right"
+                    onClick={this.onSubmit}
+                  >UpdateInformation</Button>
 
-							</Col>
-						</Form>
-					</Panel>
-				</Col>
+                </Col>
+              </Form>
+            </Panel>
+          </Col>
 
-				<Col md={6}>
-					<div className="panel panel-default">
-						<div className="panel-heading">
-							Authentication token
-							<Button className="btn-xs pull-right" onClick={this.onRefresh}>
-								<span className="glyphicon glyphicon-refresh"></span>
-							</Button>
-						</div>
-						<div className="panel-body">
-							<HelpBlock>
-								expires:<br />
-								<strong>{tokenExpiryDate}</strong>
-							</HelpBlock>
-							<pre style={{fontSize: 9}}>
-								{this.props.token.raw}
-							</pre>
-						</div>
-					</div>
-				</Col>
-			</Grid>
+          <Col md={6}>
+            <div className="panel panel-default">
+              <div className="panel-heading">
+                Authentication token
+                <Button className="btn-xs pull-right" onClick={this.onRefresh}>
+                  <span className="glyphicon glyphicon-refresh"></span>
+                </Button>
+              </div>
+              <div className="panel-body">
+                <HelpBlock>
+                  expires:<br />
+                  <strong>{tokenExpiryDate}</strong>
+                </HelpBlock>
+                <pre style={{fontSize: 9}}>
+                  {this.props.token.raw}
+                </pre>
+              </div>
+            </div>
+          </Col>
+        </Grid>
+      </div>
 		)
 	}
 }
