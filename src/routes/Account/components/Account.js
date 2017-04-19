@@ -1,10 +1,5 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types'
-import {Grid, Col, Panel} from 'react-bootstrap'
-import { Form, FormGroup, FormControl } from 'react-bootstrap'
-import { Checkbox, Button, ControlLabel, HelpBlock } from 'react-bootstrap'
-import { Link } from 'react-router'
-import { LinkContainer } from 'react-router-bootstrap'
 
 import './Account.scss'
 
@@ -69,97 +64,57 @@ class Account extends Component {
 	}
 
 	render() {
-		let exp = new Date(this.props.token.payload.exp * 1000)
+    const { picture, token } = this.props
+    let exp = new Date(token.payload.exp * 1000)
 		let tokenExpiryDate = exp.toUTCString()
-
+    // console.log(this.props)
 		return (
       <div>
         <h2>Account</h2>
-        <Grid>
-          <Col md={6}>
-            <Panel header="Account details">
-              <Form horizontal>
-                <Col xs={12} sm={4}>
-                  <FormGroup controlId="profileImage">
-                    <ControlLabel>Avatar</ControlLabel>
-                    <div>
-                      <img
-                        style={{width: '95%'}}
-                        src={this.state.picture || defaultPicture}
-                      />
-                    </div>
-                  </FormGroup>
-                </Col>
-
-                <Col xs={12} sm={8}>
-                  <FormGroup controlId="profileUsername">
-                    <ControlLabel>Name</ControlLabel>
-                    <FormControl
-                      disabled
-                      type="text"
-                      placeholder="Display name"
-                      value={this.state.displayName}
-                      onChange={this.onChange('displayName')}
-                    />
-                  </FormGroup>
-
-                  <FormGroup controlId="profileEmail">
-                    <ControlLabel>Email</ControlLabel>
-                    <FormControl
-                      disabled
-                      type="email"
-                      placeholder="Email"
-                      value={this.state.email}
-                      onChange={this.onChange('email')}
-                    />
-                  </FormGroup>
-                </Col>
-
-                <Col xs={12}>
-                  <FormGroup controlId="profileBio">
-                    <ControlLabel>Bio</ControlLabel>
-                    <FormControl
-                      componentClass="textarea"
-                      placeholder="Bio"
-                      value={this.state.bio}
-                      onChange={this.onChange('bio')}
-                    />
-                    <HelpBlock
-                      className="pull-right"
-                    >{this.state.bioCharsLeft}</HelpBlock>
-                  </FormGroup>
-
-                  <Button
-                    bsStyle="primary"
-                    className="pull-right"
-                    onClick={this.onSubmit}
-                  >UpdateInformation</Button>
-
-                </Col>
-              </Form>
-            </Panel>
-          </Col>
-
-          <Col md={6}>
-            <div className="panel panel-default">
-              <div className="panel-heading">
-                Authentication token
-                <Button className="btn-xs pull-right" onClick={this.onRefresh}>
-                  <span className="glyphicon glyphicon-refresh"></span>
-                </Button>
+        <div className="container">
+          <div className="col-md-6">
+            <form className="form-horizontal">
+              <div className="col-sm-4 col-xs-12">
+                <div className="form-group">
+                  <label htmlFor="profileImage" className="control-label">Avatar</label>
+                </div>
+                <img src={picture || defaultPicture} style={{height: '5rem'}} />
               </div>
+              <div className="col-sm-8 col-xs-12">
+                <div className="form-group">
+                  <label htmlFor="profileUsername" className="control-label">Name</label>
+                  <input type="text" disabled placeholder="Display name" id="profileUsername" className="form-control" value={this.state.displayName} onChange={this.onChange('displayName')} />
+                </div>
+                <div className="form-group">
+                  <label htmlFor="profileEmail" className="control-label">Email</label>
+                  <input type="email" disabled placeholder="Email" id="profileEmail" className="form-control" value={this.state.email} onChange={this.onChange('email')} />
+                </div>
+              </div>
+              <div className="col-xs-12">
+                <div className="form-group">
+                  <label htmlFor="profileBio" className="control-label">Bio</label>
+                  <textarea cols="30" rows="10" placeholder="Bio" id="profileBio" className="form-control" style={{border: '1px solid #ccc'}} value={this.state.bio} onChange={this.onChange('bio')}></textarea>
+                  <div className="pull-right help-block">{this.state.bioCharsLeft}</div>
+                </div>
+                <button type="button" className="pull-right btn btn-primary" onClick={this.onSubmit}>UpdateInformation</button>
+              </div>
+            </form>
+          </div>
+          <div className="col-md-6">
+            <h3>Refresh Token</h3>
+            <div className="">
+              <button type="button" className="btn-xs pull-right btn btn-default" onClick={this.onRefresh}>Refresh</button>
+            </div>
+            <div className="panel panel-default">
               <div className="panel-body">
-                <HelpBlock>
-                  expires:<br />
-                  <strong>{tokenExpiryDate}</strong>
-                </HelpBlock>
-                <pre style={{fontSize: 9}}>
-                  {this.props.token.raw}
-                </pre>
+                <strong>{tokenExpiryDate}</strong>
+                <div style={{width: '100%', marginBottom: '10px', overflowX: 'scroll'}}>
+                  <textarea style={{width: '100%', marginBottom: '10px', overflowX: 'scroll'}} rows="3" readOnly value={token.raw}></textarea>
+                </div>
               </div>
             </div>
-          </Col>
-        </Grid>
+          </div>
+        </div>
       </div>
 		)
 	}
