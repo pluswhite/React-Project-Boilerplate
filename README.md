@@ -201,6 +201,9 @@ This starter kit comes packaged with an Express server. It's important to note t
 
 Babel is configured to use [babel-plugin-transform-runtime](https://www.npmjs.com/package/babel-plugin-transform-runtime) so transforms aren't inlined. In production, webpack will extract styles to a `.css` file, minify your JavaScript, and perform additional optimizations such as module deduplication.
 
+### Auth Server
+Auth server fork from [fs-react-starter-pack](https://github.com/fullstackforger/fs-react-starter-pack)
+
 ## FAQ
 
 Having trouble? Check out our [FAQ](https://github.com/davezuko/react-redux-starter-kit/wiki/FAQ:-Frequently-Asked-Questions) or submit an issue. Please be considerate by only posting issues that are directly related to this project; questions about how to implement certain React or Redux features are both best suited for StackOverflow or their respective repositories.
