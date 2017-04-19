@@ -13,7 +13,10 @@ class Counter extends Component {
 
     return (
       <div style={{ margin: '0 auto' }} >
-        <h2>Counter: {counter}</h2>
+        <h2>Counter</h2>
+        <p>
+          <strong>{counter}</strong>
+        </p>
         <button className='btn btn-default' onClick={increment}>
           Increment
         </button>
