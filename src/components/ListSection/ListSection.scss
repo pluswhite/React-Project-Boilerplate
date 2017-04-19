@@ -1,0 +1,78 @@
+.has_action {
+  position: relative;
+  // margin: 0 15px;
+  border-bottom: 1px solid rgba(222, 222, 222, .6);
+}
+
+.article_link {
+  position: relative;
+  display: block;
+  min-height: 42px;
+  padding: 16px 0;
+  text-decoration: none;
+  .list_title {
+    margin: 0;
+    color: #222;
+    font-weight: 400;
+    font-size: 0.5rem;
+    overflow: hidden;
+    text-decoration: none;
+  }
+  &:visited {
+    .list_title {
+      // color: #aaa;
+    }
+  }
+}
+
+.list_image {
+  margin-top: 6px;
+  ul {
+    display: block;
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+    text-align: center;
+    li {
+      display: inline-block;
+      overflow: hidden;
+      width: 33.3%;
+      box-sizing: border-box;
+      &:first-child {
+        float: left;
+        padding-right: 2px;
+      }
+      &:last-child {
+        float: right;
+        padding-left: 2px;
+      }
+    }
+  }
+}
+
+.list_img_holder {
+  position: relative;
+  height: 1.96875rem;
+  background: url(http://s3b.pstatp.com/growth/mobile_list/image/toutiaoicon_loading_textpage@3x_f7c130ce94874fad96bbd5aed7bf4982.png) #efefef no-repeat 50%;
+  background-size: 50%;
+  img {
+    display: block;
+    width: 100%;
+    border: none;
+    text-decoration: none;
+  }
+}
+
+.item_info {
+  overflow: hidden;
+  margin-top: 6px;
+  color: #999;
+  font-size: 0;
+  span {
+    display: inline-block;
+    margin-right: 10px;
+    font-size: 10px;
+    // line-height: 12px;
+    vertical-align: middle;
+  }
+}

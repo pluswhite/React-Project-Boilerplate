@@ -1,0 +1,55 @@
+.top_menu_bar {
+  box-sizing: border-box;
+  background: #f4f5f6;
+  height: 37px;
+  .top_menu_list {
+    overflow: hidden;
+    overflow-x: scroll;
+    -webkit-overflow-scrolling: touch;
+    white-space: nowrap;
+    &::-webkit-scrollbar {
+      /* hide scroll bar*/
+      display: none;
+    }
+    & > .btn {
+      white-space: nowrap;
+      display: inline-block;
+      padding-left: 10px;
+      padding-right: 10px;
+      color: #505050;
+      text-decoration: none;
+      font-size: 17px;
+      line-height: 36px;
+      height: 36px;
+      margin-left: 5px;
+      // margin-top: 5px;
+      // margin-bottom: 5px;
+      -webkit-tap-highlight-color: rgba(0,0,0,.3);
+      &.active {
+        color: #f85959;
+      }
+    }
+  }
+  .top_menu_more {
+    position: relative;
+    float: right;
+    .list_shadow {
+      position: absolute;
+      left: -10px;
+      width: 10px;
+      height: 36px;
+      // background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAABXCAQAAACjUt0DAAAAAmJLR…AwtDMDRwAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAAASUVORK5CYII=) no-repeat 100%;
+      background-size: container;
+      background-color: rgba(244,245,246,.3);
+    }
+    .more_btn {
+      display: block;
+      width: 40px;
+      height: 36px;
+      background: url(http://s3.pstatp.com/growth/mobile_list/image/addred_channel_titlbar@3x_2106879383cd310a182d76e7e234db4c.png) no-repeat 50%;
+      background-size: 20px;
+      border-left: 1px solid #ccc;
+      box-shadow: -2px 0px 3px #ddd;
+    }
+  }
+}

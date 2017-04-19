@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <title>Today Focus</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+  <!--<link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">-->
+  <style type="text/css">
+    /**
+    * Loader styles.
+    */
+    html,
+    body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+
+    body,
+    .app_root {
+      position: relative;
+      font: 12px/1.5em "Helvetica Neue",Helvetica,"Hiragino Sans GB","Segoe UI","Microsoft Yahei",Tahoma,Arial,STHeiti,sans-serif;
+      background: #fff;
+    }
+
+    @-webkit-keyframes ball-scale-multiple {
+      0% {
+        -webkit-transform: scale(0);
+                transform: scale(0);
+        opacity: 0; }
+
+      5% {
+        opacity: 1; }
+
+      100% {
+        -webkit-transform: scale(1);
+                transform: scale(1);
+        opacity: 0; } }
+
+    @keyframes ball-scale-multiple {
+      0% {
+        -webkit-transform: scale(0);
+                transform: scale(0);
+        opacity: 0; }
+
+      5% {
+        opacity: 1; }
+
+      100% {
+        -webkit-transform: scale(1);
+                transform: scale(1);
+        opacity: 0; } }
+
+    .ball-scale-multiple {
+      position: relative;
+      -webkit-transform: translateY(-30px);
+          -ms-transform: translateY(-30px);
+              transform: translateY(-30px); }
+      .ball-scale-multiple > div:nth-child(2) {
+        -webkit-animation-delay: 0.2s;
+                animation-delay: 0.2s; }
+      .ball-scale-multiple > div:nth-child(3) {
+        -webkit-animation-delay: 0.4s;
+                animation-delay: 0.4s; }
+      .ball-scale-multiple > div {
+        background-color: #fff;
+        width: 15px;
+        height: 15px;
+        border-radius: 100%;
+        margin: 2px;
+        -webkit-animation-fill-mode: both;
+                animation-fill-mode: both;
+        position: absolute;
+        left: 0px;
+        top: 0px;
+        opacity: 0;
+        margin: 0;
+        width: 60px;
+        height: 60px;
+        margin-left: -15px;
+        -webkit-animation: ball-scale-multiple 1s 0s linear infinite;
+                animation: ball-scale-multiple 1s 0s linear infinite; }
+    .loaders {
+      width: 100%;
+      height: 100%;
+      box-sizing: border-box;
+      display: flex;
+      flex: 0 1 auto;
+      flex-direction: row;
+      flex-wrap: wrap;
+      background-color: #d43d3d;
+    }
+    .loaders .loader {
+      box-sizing: border-box;
+      display: flex;
+      flex: 0 1 auto;
+      flex-direction: column;
+      flex-grow: 1;
+      flex-shrink: 0;
+      flex-basis: 25%;
+      max-width: 100%;
+      height: 100%;
+      align-items: center;
+      justify-content: center;
+    }
+  </style>
+  <script type="text/javascript" charset="utf-8">function setFontSize() {var winWidth;if (window.innerWidth) {winWidth = window.innerWidth;} else if ((document.body) && (document.body.clientWidth)) {winWidth = document.body.clientWidth;};var size = (winWidth / 100)*10;document.documentElement.style.fontSize = (size < 100 ? size : 100) + 'px';};setFontSize();</script>
+  <script>
+    // Init data from server.
+    window.__INITIAL_STATE__ = {};
+  </script>
+</head>
+<body>
+  <div id="root" class="app_root" style="height: 100%;min-height: 100%;">
+    <!-- loading -->
+    <div class="loaders">
+      <div class="loader">
+        <div class="loader-inner ball-scale-multiple">
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+      </div>
+    </div><!-- /loading -->
+  </div>
+</body>
+</html>

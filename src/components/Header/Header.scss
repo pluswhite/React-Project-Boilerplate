@@ -1,0 +1,53 @@
+.header {
+  position: fixed;
+  top:0;
+  right: 0;
+  left: 0;
+  z-index: 999;
+  display: block;
+  overflow: hidden;
+  border-bottom: 1px solid #ececec;
+}
+.top_bar {
+  position: relative;
+  background: #d43d3d;
+  height: 44px;
+  .abs_l,
+  .abs_m,
+  .abs_r {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  .abs_l {
+    z-index: 100;
+    width: 54px;
+  }
+  .abs_m {
+    width: 100%;
+    line-height: 44px;
+    color: #fff;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 700;
+  }
+  .abs_r {
+    right: 0;
+    z-index: 100;
+  }
+  .msg_box {
+    position: relative;
+    display: block;
+    width: 32px;
+    height: 25px;
+    margin-left: 12px;
+    background-size: contain;
+  }
+  .search {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    margin-right: 12px;
+    background-size: contain;
+  }
+}
