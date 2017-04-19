@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 // import PropTypes from 'prop-types'
-import { Grid, Col, Panel, HelpBlock } from 'react-bootstrap'
 import { Link } from 'react-router'
 
 import './Logout.scss'
@@ -43,19 +42,20 @@ class Logout extends Component {
 
 	render() {
 		return (
-			<Grid>
-				<Col md={6} mdPush={3}>
-					<Panel>
-						<HelpBlock style={{textAlign: 'center'}}>
-							<p><strong>You have been logged out.</strong></p>
-							<p>Redirecting to <Link to="/">home page</Link>
-							...in {this.state.timeout}s</p>
-							<p>or <Link to="/login">login</Link> again.</p>
-						</HelpBlock>
-					</Panel>
-
-				</Col>
-			</Grid>
+      <div className="container">
+        <div style={{textAlign: 'center'}}>
+          <p>
+            <strong>You have been logged out.</strong>
+          </p>
+          <p>
+            Redirecting to <Link to="/">home page</Link>
+          ...in {this.state.timeout}s
+          </p>
+          <p>
+            or <Link to="/login">login</Link> again.
+          </p>
+        </div>
+      </div>
 		)
 	}
 }

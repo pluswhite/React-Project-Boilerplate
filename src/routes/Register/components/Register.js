@@ -1,21 +1,10 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types'
-
-import { Grid, Col, Panel } from 'react-bootstrap'
-import { Form, FormGroup, FormControl } from 'react-bootstrap'
-import { FieldGroup, HelpBlock } from 'react-bootstrap'
-import { Checkbox, Button, ControlLabel } from 'react-bootstrap'
 import { Link } from 'react-router'
 
 import { validateEmail, validateDisplayName, validatePassword, validatePassword2 } from './user-validators'
 
 import './Register.scss'
-
-const css = {
-	signupBlock: { textAlign: 'center', marginTop: '1em' },
-	signupSpan: { paddingRight: '0.5em' },
-	panelTitle: { fontSize: '.5rem' }
-}
 
 class Register extends Component {
   static propTypes = {
@@ -90,92 +79,44 @@ class Register extends Component {
 		let password2 = this.state.password2
 
 		return (
-			<Grid>
-				<Col md={8}>
-					<Panel><Col xs={10} xsPush={1}>
-            <h2 style={css.panelTitle}>Register account</h2>
-						<Form horizontal>
-
-							<FormGroup controlId="signupDisplayName" validationState={this.getValidationState('displayName')}>
-								<Col componentClass={ControlLabel} sm={2}>
-									Name
-								</Col>
-								<Col sm={10}>
-									<FormControl type="text" placeholder="Display name"
-										value={displayName.value}
-										onChange={this.onChange('displayName')}
-									/>
-									<FormControl.Feedback />
-									<HelpBlock>
-										{displayName.error}
-									</HelpBlock>
-								</Col>
-							</FormGroup>
-
-							<FormGroup controlId="signupEmail"  validationState={this.getValidationState('email')}>
-								<Col componentClass={ControlLabel} sm={2}>
-									Email
-								</Col>
-								<Col sm={10}>
-									<FormControl type="email" placeholder="Email"
-										value={email.value}
-										onChange={this.onChange('email')}
-									/>
-									<FormControl.Feedback />
-									<HelpBlock>
-										{email.error}
-									</HelpBlock>
-								</Col>
-							</FormGroup>
-
-							<FormGroup controlId="signupPassword" validationState={this.getValidationState('password')}>
-								<Col componentClass={ControlLabel} sm={2}>
-									Password
-								</Col>
-								<Col sm={10}>
-									<FormControl type="password" placeholder="Password"
-										value={password.value}
-										onChange={this.onChange('password')}
-									/>
-									<FormControl.Feedback />
-									<HelpBlock>
-										{password.error}
-									</HelpBlock>
-								</Col>
-							</FormGroup>
-
-							<FormGroup controlId="signupPassword2" validationState={this.getValidationState('password2')}>
-								<Col componentClass={ControlLabel} sm={2}>
-									Password
-								</Col>
-								<Col sm={10}>
-									<FormControl type="password" placeholder="Confirm Password"
-										value={password2.value}
-										onChange={this.onChange('password2')}
-									/>
-									<FormControl.Feedback />
-									<HelpBlock>
-										{password2.error}
-									</HelpBlock>
-								</Col>
-							</FormGroup>
-
-							<Button bsStyle="primary" block
-								onClick={this.onSignupClick}
-								disabled={!this.isFormReady()}
-							>
-								Register
-							</Button>
-              <div>
-                <HelpBlock style={css.signupBlock}>
-                  <span style={css.signupSpan}>Registered already?</span>
-                  <Link to="/login">Log in</Link>
-                </HelpBlock>
-              </div>
-						</Form>
-					</Col></Panel>
-				</Col>
-			</Grid>
+			<div className="container">
+        <h2>Register account</h2>
+        <form className="form-horizontal">
+          <div className="form-group has-feedback">
+            <label htmlFor="signupDisplayName" className="col-sm-2 control-label">Name</label>
+            <div className="col-sm-10">
+              <input type="text" placeholder="Display name" id="signupDisplayName" className="form-control" value={displayName.value} onChange={this.onChange('displayName')} />
+              <div className="help-block"></div>
+            </div>
+          </div>
+          <div className="form-group has-feedback">
+            <label htmlFor="signupEmail" className="col-sm-2 control-label">Email</label>
+            <div className="col-sm-10">
+              <input type="email" placeholder="Email" id="signupEmail" className="form-control" className="form-control" value={email.value} onChange={this.onChange('email')} />
+              <div className="help-block"></div>
+            </div>
+          </div>
+          <div className="form-group has-feedback">
+            <label htmlFor="signupPassword" className="col-sm-2 control-label">Password</label>
+            <div className="col-sm-10">
+              <input type="password" placeholder="Password" value="" id="signupPassword" value={password.value} onChange={this.onChange('password')} />
+              <div className="help-block"></div>
+            </div>
+          </div>
+          <div className="form-group has-feedback">
+            <label htmlFor="signupPassword2" className="col-sm-2 control-label">Password</label>
+            <div className="col-sm-10">
+              <input type="password" placeholder="Confirm Password" id="signupPassword2" className="form-control" value={password2.value} onChange={this.onChange('password2')} />
+              <div className="help-block"></div>
+            </div>
+          </div>
+          <button type="button" className="btn btn-primary btn-block" onClick={this.onSignupClick} disabled={!this.isFormReady()}>Register</button>
+          <div className="help-block" style={{textAlign: 'inherit', marginTop: '1em'}}>
+            <span style={{paddingRight: '0.5em'}}>Registered already?</span>
+            <Link to="/login">Log in</Link>
+          </div>
+        </form>
+      </div>
 		)
 	}
 }
