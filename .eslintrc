@@ -19,10 +19,52 @@
     "__COVERAGE__" : false
   },
   "rules": {
-    "key-spacing"          : 0,
-    "jsx-quotes"           : [2, "prefer-single"],
-    "max-len"              : [2, 120, 2],
-    "object-curly-spacing" : [2, "always"],
-    "no-undef"             : 1
+    "semi": 0,
+    "quotes": 0,
+    "space-infix-ops": 0,
+    "comma-spacing": 0,
+    "keyword-spacing": 0,
+    "space-before-blocks": 0,
+    "no-useless-constructor": 0,
+    "block-spacing": 0,
+    "arrow-spacing": 0,
+    "no-trailing-spaces": 0,
+    "padded-blocks": 0,
+    "eol-last": 0,
+    "no-tabs": 0,
+    "indent": 0,
+    "space-before-function-paren": 0,
+    "no-useless-escape": 0,
+    "eqeqeq": 0,
+    "key-spacing": 0,
+    "no-multi-spaces": 0,
+    "comma-dangle": 0,
+    "no-unused-vars": 0,
+    "operator-linebreak": 0,
+    "no-duplicate-imports": 0,
+    "no-mixed-spaces-and-tabs": 0,
+    "spaced-comment": 0,
+    "standard/object-curly-even-spacing": 0,
+    "no-extra-boolean-cast": 0,
+    "react/self-closing-comp": 0,
+    "react/jsx-no-undef": 0,
+    "react/prop-types": 0,
+    "react/jsx-indent": 0,
+    "react/jsx-indent-props": 0,
+    "react/no-unused-prop-types": 0,
+    "react/jsx-no-duplicate-props": 0,
+    "jsx-quotes": [
+      0,
+      "prefer-single"
+    ],
+    "max-len": [
+      0,
+      120
+    ],
+    "object-curly-spacing": [
+      0,
+      "never"
+    ],
+    "no-undef": 0
   }
 }
