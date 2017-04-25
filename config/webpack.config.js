@@ -96,7 +96,7 @@ if (__DEV__) {
   debug('Enabling plugins for production (OccurrenceOrder, Dedupe & UglifyJS).')
   webpackConfig.plugins.push(
     new webpack.optimize.OccurrenceOrderPlugin(),
-    new webpack.optimize.DedupePlugin(),
+    // new webpack.optimize.DedupePlugin(),
     new webpack.optimize.UglifyJsPlugin({
       sourceMap: true,
       compress : {
@@ -143,45 +143,45 @@ webpackConfig.module.rules = [
 
 webpackConfig.module.rules.push({
   test    : /\.scss$/,
-  use: [
-    {
-      loader: "style-loader"
-    },
-    {
-      loader: "css-loader",
-      options: {
-        sourceMap: true,
-        minimize: true
+  use: ExtractTextPlugin.extract({
+    fallback: 'style-loader',
+    use: [
+      {
+        loader: "css-loader",
+        options: {
+          sourceMap: true,
+          minimize: true
+        }
+      },
+      {
+        loader: 'postcss-loader'
+      },
+      {
+        loader: 'sass-loader',
+        options: {
+          sourceMap: true
+        }
       }
-    },
-    {
-      loader: 'postcss-loader'
-    },
-    {
-      loader: 'sass-loader',
-      options: {
-        sourceMap: true
-      }
-    }
-  ]
+    ]
+  })
 })
 webpackConfig.module.rules.push({
   test    : /\.css$/,
-  use: [
-    {
-      loader: "style-loader"
-    },
-    {
-      loader: "css-loader",
-      options: {
-        sourceMap: true,
-        minimize: true
+  use: ExtractTextPlugin.extract({
+    fallback: "style-loader",
+    use: [
+      {
+        loader: "css-loader",
+        options: {
+          sourceMap: true,
+          minimize: true
+        }
+      },
+      {
+        loader: 'postcss-loader'
       }
-    },
-    {
-      loader: 'postcss-loader'
-    }
-  ]
+    ]
+  })
 })
 
 webpackConfig.plugins.push(
@@ -297,7 +297,7 @@ if (!__DEV__) {
   webpackConfig.module.rules.filter((rule) =>
     // rule.loaders && rule.loaders.find((name) => /css/.test(name.split('?')[0]))
     rule.loader && /css/.test(rule.loader)
-  ).forEach((rule) => {
+  ).forEach((loader) => {
     const first = rule.loader
     const rest = rule.loader.slice(1)
     // rule.use = ExtractTextPlugin.extract(first, rest.join('!'))
@@ -312,6 +312,13 @@ if (!__DEV__) {
     new ExtractTextPlugin({
       filename: '[name].[contenthash].css',
       allChunks: true
+    })
+  )
+} else {
+  webpackConfig.plugins.push(
+    new ExtractTextPlugin({
+      filename: '[name].[contenthash].css',
+      allChunks: false
     })
   )
 }
