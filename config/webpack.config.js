@@ -65,7 +65,9 @@ webpackConfig.plugins = [
     filename : 'index.html',
     inject   : 'body',
     minify   : {
-      collapseWhitespace : true
+      ollapseWhitespace : true,
+      minifyCSS: true,
+      minifyJS: true
     }
   })
 ]

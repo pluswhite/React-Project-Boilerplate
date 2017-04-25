@@ -1,10 +1,9 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <title>Today Focus</title>
+  <title>React Redux Starter Kit</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
-  <!--<link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">-->
   <style type="text/css">
     /**
     * Loader styles.
@@ -104,7 +103,21 @@
       justify-content: center;
     }
   </style>
-  <script type="text/javascript" charset="utf-8">function setFontSize() {var winWidth;if (window.innerWidth) {winWidth = window.innerWidth;} else if ((document.body) && (document.body.clientWidth)) {winWidth = document.body.clientWidth;};var size = (winWidth / 100)*10;document.documentElement.style.fontSize = (size < 100 ? size : 100) + 'px';};setFontSize();</script>
+  <script type="text/javascript" charset="utf-8">
+    // Set font size.
+    (function () {
+      var
+        winWidth;
+      if (window.innerWidth) {
+        winWidth = window.innerWidth;
+      } else if ((document.body) && (document.body.clientWidth)) {
+        winWidth = document.body.clientWidth;
+      }
+  　　var
+        size = (winWidth / 100)*10;
+  　　document.documentElement.style.fontSize = (size < 100 ? size : 100) + 'px';
+    })();
+  </script>
   <script>
     // Init data from server.
     window.__INITIAL_STATE__ = {};
