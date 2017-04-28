@@ -3,6 +3,7 @@ const webpack = require('webpack')
 const cssnano = require('cssnano')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
+const FaviconsWebpackPlugin = require('favicons-webpack-plugin')
 const project = require('./project.config')
 const debug = require('debug')('app:config:webpack')
 
@@ -61,7 +62,7 @@ webpackConfig.plugins = [
   new HtmlWebpackPlugin({
     template : project.paths.client('index.html'),
     hash     : false,
-    favicon  : project.paths.public('favicon.ico'),
+    // favicon  : project.paths.public('favicon.ico'),
     filename : 'index.html',
     inject   : 'body',
     minify   : {
@@ -71,6 +72,30 @@ webpackConfig.plugins = [
     }
   })
 ]
+
+webpackConfig.plugins.push(
+  new FaviconsWebpackPlugin({
+    logo: project.paths.public('logo.jpg'),
+    prefix: 'icons-[hash]/',
+    // Inject the html into the html-webpack-plugin
+    inject: true,
+    background: 'transparent',
+    title: 'React Redux Starter Kit',
+    // which icons should be generated (see https://github.com/haydenbleasel/favicons#usage)
+    icons: {
+      android: true,
+      appleIcon: true,
+      appleStartup: true,
+      coast: false,
+      favicons: true,
+      firefox: true,
+      opengraph: false,
+      twitter: false,
+      yandex: false,
+      windows: false
+    }
+  })
+)
 
 // Ensure that the compiler exits on errors during testing so that
 // they do not get skipped and misreported.
