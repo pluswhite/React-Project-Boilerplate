@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import { browserHistory, Router } from 'react-router'
 import { Provider } from 'react-redux'
 import { Auth } from 'react-jwt-auth-redux'
+import apiConfig from '../../config/auth.config'
 
 class AppContainer extends Component {
   static propTypes = {
@@ -18,7 +19,7 @@ class AppContainer extends Component {
     const { routes, store } = this.props
     const authConfig = {
       // --- DEFAULTS ---
-      tokenName: 'tfn-token',
+      tokenName: apiConfig.token_name,
       // authHeader: 'Authorization',
       // authToken: 'Bearer',
       // baseUrl: '/',
@@ -28,7 +29,7 @@ class AppContainer extends Component {
       // oauthUrl: 'auth/{provider}', // dynamic
       // profileUrl: 'me'
       // --- REQUIRED ---
-      baseUrl: "http://localhost:3025/api/"
+      baseUrl: apiConfig.auth_api_url
     }
 
     // store.subscribe(function() {

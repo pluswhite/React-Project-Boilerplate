@@ -1,4 +1,5 @@
 import fetch from 'isomorphic-fetch'
+import { requestInstance, requestAuthInstance } from '../../auth'
 
 /**
  * Constants
@@ -36,9 +37,14 @@ export const fetchNews = () => {
   return (dispatch) => {
     dispatch(requestNewsPosts())
 
-    return fetch('http://localhost:3011/news')
-      .then(res => res.json())
-      .then(res => dispatch(requestNewsSuccess(res)))
+    return requestInstance.get('news')
+      .then(res => {
+        dispatch(requestNewsSuccess(res))
+      })
+      .catch(err => {
+        dispatch(requestNewsFailure())
+        console.log(err)
+      })
   }
 }
 
