@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { browserHistory, Router } from 'react-router'
 import { Provider } from 'react-redux'
 import { Auth } from 'react-jwt-auth-redux'
-import apiConfig from '../../config/auth.config'
+import apiConfig from '../../config/api.config'
 
 class AppContainer extends Component {
   static propTypes = {

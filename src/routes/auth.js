@@ -1,8 +1,8 @@
 import axios from 'axios'
 import auth from 'react-jwt-auth-redux'
-import apiConfig from '../../config/auth.config'
+import apiConfig from '../../config/api.config'
 
-console.log(apiConfig)
+// console.log(apiConfig)
 
 export const requestAuthInstance = axios.create({
   baseURL: apiConfig.auth_api_url,
