@@ -1,22 +1,12 @@
-import React, { Component } from 'react'
+import React from 'react'
+import DuckImage from '../assets/Duck.jpg'
 import './HomeView.scss'
 
-import DockImage from '../assets/Duck.jpg'
-
-class HomeView extends Component {
-  render() {
-    const { fetchNews } = this.props
-    return (
-      <div className="list_content">
-        <h2>Home Page</h2>
-        <div style={{
-          textAlign: 'center'
-        }}>
-          <img className="home-img" src={DockImage} alt="Yellow Dock" />
-        </div>
-      </div>
-    )
-  }
-}
+export const HomeView = () => (
+  <div>
+    <h4>Welcome!</h4>
+    <img alt='This is a duck, because Redux!' className='duck' src={DuckImage} />
+  </div>
+)
 
 export default HomeView

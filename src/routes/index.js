@@ -1,35 +1,17 @@
 // We only need to import the modules necessary for initial render
-import auth from 'react-jwt-auth-redux'
-import CoreLayout from '../layouts/CoreLayout'
-import HomeRoute from './Home'
+import CoreLayout from '../layouts/PageLayout/PageLayout'
+import Home from './Home'
 import CounterRoute from './Counter'
-import ZenRoute from './Zen'
-import RegisterRoute from './Register'
-import LoginRoute from './Login'
-import LogoutRoute from './Logout'
-import AccountRoute from './Account'
-
-// Auth route check
-const authRouteCheck = (nextState, replace, authState, redirectPath) => {
-  // console.log(auth.isAuthenticated())
-  if (auth.isAuthenticated() !== authState) {
-    replace(redirectPath)
-  }
-}
 
 /*  Note: Instead of using JSX, we recommend using react-router
     PlainRoute objects to build route definitions.   */
+
 export const createRoutes = (store) => ({
   path        : '/',
   component   : CoreLayout,
-  indexRoute  : HomeRoute(store),
+  indexRoute  : Home,
   childRoutes : [
-    CounterRoute(store),
-    ZenRoute(store),
-    LoginRoute(store, authRouteCheck),
-    LogoutRoute(store, authRouteCheck),
-    AccountRoute(store, authRouteCheck),
-    RegisterRoute(store, authRouteCheck)
+    CounterRoute(store)
   ]
 })
 
