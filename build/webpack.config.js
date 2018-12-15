@@ -1,7 +1,10 @@
 const path = require('path')
 const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const ExtractTextPlugin = require('extract-text-webpack-plugin')
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
+const OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin')
+const MiniCssExtractPlugin = require("mini-css-extract-plugin")
+// const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const project = require('../project.config')
 
 const inProject = path.resolve.bind(path, project.basePath)
@@ -20,6 +23,7 @@ const config = {
       inProjectSrc(project.main),
     ],
   },
+  mode: __DEV__ ? 'development' : 'production',
   devtool: project.sourcemaps ? 'source-map' : false,
   output: {
     path: inProject(project.outDir),
@@ -90,50 +94,55 @@ config.module.rules.push({
 
 // Styles
 // ------------------------------------
-const extractStyles = new ExtractTextPlugin({
-  filename: 'styles/[name].[contenthash].css',
-  allChunks: true,
-  disable: __DEV__,
+// const extractStyles = new ExtractTextPlugin({
+//   filename: 'styles/[name].[contenthash].css',
+//   allChunks: true,
+//   disable: __DEV__,
+// })
+const extractStyles = new MiniCssExtractPlugin({
+  filename: __DEV__ ? '[name].css' : 'styles/[name].[contenthash].css',
+  chunkFilename: __DEV__ ? '[id].css' : 'styles/[id].[contenthash].css'
 })
 
 config.module.rules.push({
   test: /\.(sass|scss)$/,
-  loader: extractStyles.extract({
-    fallback: 'style-loader',
-    use: [
-      {
-        loader: 'css-loader',
-        options: {
-          sourceMap: project.sourcemaps,
-          minimize: {
-            autoprefixer: {
-              add: true,
-              remove: true,
-              browsers: ['last 2 versions'],
-            },
-            discardComments: {
-              removeAll : true,
-            },
-            discardUnused: false,
-            mergeIdents: false,
-            reduceIdents: false,
-            safe: true,
-            sourcemap: project.sourcemaps,
+  use: [
+    {
+      loader: __DEV__ ? 'style-loader' : MiniCssExtractPlugin.loader,
+    },
+    {
+      loader: 'css-loader',
+      options: {
+        sourceMap: project.sourcemaps,
+        minimize: {
+          autoprefixer: {
+            add: true,
+            remove: true,
+            browsers: ['last 2 versions'],
           },
+          discardComments: {
+            removeAll : true,
+          },
+          discardUnused: false,
+          mergeIdents: false,
+          reduceIdents: false,
+          safe: true,
+          sourcemap: project.sourcemaps,
         },
       },
-      {
-        loader: 'sass-loader',
-        options: {
-          sourceMap: project.sourcemaps,
-          includePaths: [
-            inProjectSrc('styles'),
-          ],
-        },
-      }
-    ],
-  })
+    },
+    {
+      loader: 'sass-loader',
+      options: {
+        sourceMap: project.sourcemaps,
+        includePaths: [
+          inProjectSrc('styles'),
+        ],
+      },
+    }
+  ],
 })
+
 config.plugins.push(extractStyles)
 
 // Images
@@ -188,7 +197,7 @@ if (__DEV__) {
   )
   config.plugins.push(
     new webpack.HotModuleReplacementPlugin(),
-    new webpack.NamedModulesPlugin()
+    // new webpack.NamedModulesPlugin()
   )
 }
 
@@ -201,7 +210,37 @@ if (!__TEST__) {
     bundles.unshift('vendor')
     config.entry.vendor = project.vendors
   }
-  config.plugins.push(new webpack.optimize.CommonsChunkPlugin({ names: bundles }))
+  // config.plugins.push(new webpack.optimize.CommonsChunkPlugin({ names: bundles }))
+  config.optimization = {
+    minimizer: [
+      // js mini
+      new UglifyJsPlugin({
+        cache: true,
+        parallel: true,
+        sourceMap: false // set to true if you want JS source maps
+      }),
+      // css mini
+      new OptimizeCSSPlugin({})
+    ],
+    runtimeChunk: {
+      name: 'bundles'
+    },
+    splitChunks: {
+      chunks: 'async',
+      // 大于30KB才单独分离成chunk
+      minSize: 30000,
+      maxAsyncRequests: 5,
+      maxInitialRequests: 3,
+      name: true,
+      cacheGroups: {
+        commons: {
+          test: /[\\/]node_modules[\\/]/,
+          name: 'vendor',
+          chunks: 'all'
+        }
+      }
+    }
+  }
 }
 
 // Production Optimizations
@@ -212,22 +251,22 @@ if (__PROD__) {
       minimize: true,
       debug: false,
     }),
-    new webpack.optimize.UglifyJsPlugin({
-      sourceMap: !!config.devtool,
-      comments: false,
-      compress: {
-        warnings: false,
-        screw_ie8: true,
-        conditionals: true,
-        unused: true,
-        comparisons: true,
-        sequences: true,
-        dead_code: true,
-        evaluate: true,
-        if_return: true,
-        join_vars: true,
-      },
-    })
+    // new webpack.optimize.UglifyJsPlugin({
+    //   sourceMap: !!config.devtool,
+    //   comments: false,
+    //   compress: {
+    //     warnings: false,
+    //     screw_ie8: true,
+    //     conditionals: true,
+    //     unused: true,
+    //     comparisons: true,
+    //     sequences: true,
+    //     dead_code: true,
+    //     evaluate: true,
+    //     if_return: true,
+    //     join_vars: true,
+    //   },
+    // })
   )
 }
 
