@@ -1,4 +1,5 @@
 import { connect } from 'react-redux'
+import { withRouter } from 'react-router-dom'
 import { increment, doubleAsync } from '../modules/counter'
 
 /*  This is a container component. Notice it does not contain any JSX,
@@ -35,4 +36,6 @@ const mapStateToProps = (state) => ({
     Selectors are composable. They can be used as input to other selectors.
     https://github.com/reactjs/reselect    */
 
-export default connect(mapStateToProps, mapDispatchToProps)(Counter)
+// export default connect(mapStateToProps, mapDispatchToProps)(Counter)
+
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Counter))
