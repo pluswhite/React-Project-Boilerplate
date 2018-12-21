@@ -3,7 +3,7 @@ const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 const OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin')
-const MiniCssExtractPlugin = require("mini-css-extract-plugin")
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 // const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const project = require('../project.config')
 
@@ -94,11 +94,6 @@ config.module.rules.push({
 
 // Styles
 // ------------------------------------
-// const extractStyles = new ExtractTextPlugin({
-//   filename: 'styles/[name].[contenthash].css',
-//   allChunks: true,
-//   disable: __DEV__,
-// })
 const extractStyles = new MiniCssExtractPlugin({
   filename: __DEV__ ? '[name].css' : 'styles/[name].[contenthash].css',
   chunkFilename: __DEV__ ? '[id].css' : 'styles/[id].[contenthash].css'

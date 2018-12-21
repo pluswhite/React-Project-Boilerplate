@@ -9,13 +9,13 @@ describe('(Store) createStore', () => {
     store = createStore()
   })
 
-  it('should have an empty asyncReducers object', () => {
+  test('should have an empty asyncReducers object', () => {
     expect(store.asyncReducers).to.be.an('object')
     expect(store.asyncReducers).to.be.empty()
   })
 
   describe('(Location)', () => {
-    it('store should be initialized with Location state', () => {
+    test('store should be initialized with Location state', () => {
       const location = {
         pathname : '/echo'
       }
