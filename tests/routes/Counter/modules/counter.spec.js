@@ -6,20 +6,20 @@ import {
 } from 'routes/Counter/modules/counter'
 
 describe('(Redux Module) Counter', () => {
-  test('Should export a constant COUNTER_INCREMENT.', () => {
+  it('Should export a constant COUNTER_INCREMENT.', () => {
     expect(COUNTER_INCREMENT).to.equal('COUNTER_INCREMENT')
   })
 
   describe('(Reducer)', () => {
-    test('Should be a function.', () => {
+    it('Should be a function.', () => {
       expect(counterReducer).to.be.a('function')
     })
 
-    test('Should initialize with a state of 0 (Number).', () => {
+    it('Should initialize with a state of 0 (Number).', () => {
       expect(counterReducer(undefined, {})).to.equal(0)
     })
 
-    test('Should return the previous state if an action was not matched.', () => {
+    it('Should return the previous state if an action was not matched.', () => {
       let state = counterReducer(undefined, {})
       expect(state).to.equal(0)
       state = counterReducer(state, { type: '@@@@@@@' })
@@ -32,19 +32,19 @@ describe('(Redux Module) Counter', () => {
   })
 
   describe('(Action Creator) increment', () => {
-    test('Should be exported as a function.', () => {
+    it('Should be exported as a function.', () => {
       expect(increment).to.be.a('function')
     })
 
-    test('Should return an action with type "COUNTER_INCREMENT".', () => {
+    it('Should return an action with type "COUNTER_INCREMENT".', () => {
       expect(increment()).to.have.property('type', COUNTER_INCREMENT)
     })
 
-    test('Should assign the first argument to the "payload" property.', () => {
+    it('Should assign the first argument to the "payload" property.', () => {
       expect(increment(5)).to.have.property('payload', 5)
     })
 
-    test('Should default the "payload" property to 1 if not provided.', () => {
+    it('Should default the "payload" property to 1 if not provided.', () => {
       expect(increment()).to.have.property('payload', 1)
     })
   })
@@ -69,19 +69,19 @@ describe('(Redux Module) Counter', () => {
       })
     })
 
-    test('Should be exported as a function.', () => {
+    it('Should be exported as a function.', () => {
       expect(doubleAsync).to.be.a('function')
     })
 
-    test('Should return a function (is a thunk).', () => {
+    it('Should return a function (is a thunk).', () => {
       expect(doubleAsync()).to.be.a('function')
     })
 
-    test('Should return a promise from that thunk that gets fulfilled.', () => {
+    it('Should return a promise from that thunk that gets fulfilled.', () => {
       return doubleAsync()(_dispatchSpy, _getStateSpy).should.eventually.be.fulfilled
     })
 
-    test('Should call dispatch and getState exactly once.', () => {
+    it('Should call dispatch and getState exactly once.', () => {
       return doubleAsync()(_dispatchSpy, _getStateSpy)
         .then(() => {
           _dispatchSpy.should.have.been.calledOnce()
@@ -89,7 +89,7 @@ describe('(Redux Module) Counter', () => {
         })
     })
 
-    test('Should produce a state that is double the previous state.', () => {
+    it('Should produce a state that is double the previous state.', () => {
       _globalState = { counter: 2 }
 
       return doubleAsync()(_dispatchSpy, _getStateSpy)
@@ -111,15 +111,18 @@ describe('(Redux Module) Counter', () => {
   // that you did not mutate the state. In this case our state is just a number
   // (which cannot be mutated).
   describe('(Action Handler) COUNTER_INCREMENT', () => {
-    test('Should increment the state by the action payload\'s "value" property.', () => {
-      let state = counterReducer(undefined, {})
-      expect(state).to.equal(0)
-      state = counterReducer(state, increment(1))
-      expect(state).to.equal(1)
-      state = counterReducer(state, increment(2))
-      expect(state).to.equal(3)
-      state = counterReducer(state, increment(-3))
-      expect(state).to.equal(0)
-    })
+    it(
+      'Should increment the state by the action payload\'s "value" property.',
+      () => {
+        let state = counterReducer(undefined, {})
+        expect(state).to.equal(0)
+        state = counterReducer(state, increment(1))
+        expect(state).to.equal(1)
+        state = counterReducer(state, increment(2))
+        expect(state).to.equal(3)
+        state = counterReducer(state, increment(-3))
+        expect(state).to.equal(0)
+      }
+    )
   })
 })

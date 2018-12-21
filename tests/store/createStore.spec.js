@@ -5,17 +5,17 @@ import {
 describe('(Store) createStore', () => {
   let store
 
-  before(() => {
+  beforeAll(() => {
     store = createStore()
   })
 
-  test('should have an empty asyncReducers object', () => {
+  it('should have an empty asyncReducers object', () => {
     expect(store.asyncReducers).to.be.an('object')
     expect(store.asyncReducers).to.be.empty()
   })
 
   describe('(Location)', () => {
-    test('store should be initialized with Location state', () => {
+    it('store should be initialized with Location state', () => {
       const location = {
         pathname : '/echo'
       }
