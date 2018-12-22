@@ -1,3 +1,4 @@
+import { sinon } from 'sinon'
 import {
   COUNTER_INCREMENT,
   increment,
@@ -7,33 +8,33 @@ import {
 
 describe('(Redux Module) Counter', () => {
   it('Should export a constant COUNTER_INCREMENT.', () => {
-    expect(COUNTER_INCREMENT).to.equal('COUNTER_INCREMENT')
+    expect(COUNTER_INCREMENT).toEqual('COUNTER_INCREMENT')
   })
 
   describe('(Reducer)', () => {
     it('Should be a function.', () => {
-      expect(counterReducer).to.be.a('function')
+      expect(typeof counterReducer).toBe('function')
     })
 
     it('Should initialize with a state of 0 (Number).', () => {
-      expect(counterReducer(undefined, {})).to.equal(0)
+      expect(counterReducer(undefined, {})).toEqual(0)
     })
 
     it('Should return the previous state if an action was not matched.', () => {
       let state = counterReducer(undefined, {})
-      expect(state).to.equal(0)
+      expect(state).toEqual(0)
       state = counterReducer(state, { type: '@@@@@@@' })
-      expect(state).to.equal(0)
+      expect(state).toEqual(0)
       state = counterReducer(state, increment(5))
-      expect(state).to.equal(5)
+      expect(state).toEqual(5)
       state = counterReducer(state, { type: '@@@@@@@' })
-      expect(state).to.equal(5)
+      expect(state).toEqual(5)
     })
   })
 
   describe('(Action Creator) increment', () => {
     it('Should be exported as a function.', () => {
-      expect(increment).to.be.a('function')
+      expect(typeof increment).toBe('function')
     })
 
     it('Should return an action with type "COUNTER_INCREMENT".', () => {
@@ -70,11 +71,11 @@ describe('(Redux Module) Counter', () => {
     })
 
     it('Should be exported as a function.', () => {
-      expect(doubleAsync).to.be.a('function')
+      expect(typeof doubleAsync).toBe('function')
     })
 
     it('Should return a function (is a thunk).', () => {
-      expect(doubleAsync()).to.be.a('function')
+      expect(typeof doubleAsync()).toBe('function')
     })
 
     it('Should return a promise from that thunk that gets fulfilled.', () => {
@@ -96,13 +97,13 @@ describe('(Redux Module) Counter', () => {
         .then(() => {
           _dispatchSpy.should.have.been.calledOnce()
           _getStateSpy.should.have.been.calledOnce()
-          expect(_globalState.counter).to.equal(4)
+          expect(_globalState.counter).toEqual(4)
           return doubleAsync()(_dispatchSpy, _getStateSpy)
         })
         .then(() => {
           _dispatchSpy.should.have.been.calledTwice()
           _getStateSpy.should.have.been.calledTwice()
-          expect(_globalState.counter).to.equal(8)
+          expect(_globalState.counter).toEqual(8)
         })
     })
   })
@@ -115,13 +116,13 @@ describe('(Redux Module) Counter', () => {
       'Should increment the state by the action payload\'s "value" property.',
       () => {
         let state = counterReducer(undefined, {})
-        expect(state).to.equal(0)
+        expect(state).toEqual(0)
         state = counterReducer(state, increment(1))
-        expect(state).to.equal(1)
+        expect(state).toEqual(1)
         state = counterReducer(state, increment(2))
-        expect(state).to.equal(3)
+        expect(state).toEqual(3)
         state = counterReducer(state, increment(-3))
-        expect(state).to.equal(0)
+        expect(state).toEqual(0)
       }
     )
   })

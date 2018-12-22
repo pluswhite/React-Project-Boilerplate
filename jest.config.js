@@ -1,6 +1,7 @@
 module.exports = {
   collectCoverageFrom: [
     'tests/**/*.{js,jsx}',
+    '!tests/mocks/**/*.js',
     '!tests/enzyme-setup.js',
     '!tests/test-bundler.js',
   ],
@@ -12,7 +13,10 @@ module.exports = {
       lines: 98,
     },
   },
-  moduleDirectories: ['node_modules', 'src'],
+  moduleDirectories: [
+    'node_modules',
+    'src'
+  ],
   moduleNameMapper: {
     '.*\\.(css|less|styl|scss|sass)$': '<rootDir>/tests/mocks/cssModule.js',
     '.*\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$':

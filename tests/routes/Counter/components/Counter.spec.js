@@ -2,6 +2,7 @@ import React from 'react'
 import { bindActionCreators } from 'redux'
 import { Counter } from 'routes/Counter/components/Counter'
 import { shallow } from 'enzyme'
+import sinon from 'sinon'
 
 describe('(Component) Counter', () => {
   let _props, _spies, _wrapper
@@ -19,21 +20,21 @@ describe('(Component) Counter', () => {
   })
 
   it('renders as a <div>.', () => {
-    expect(_wrapper.is('div')).to.equal(true)
+    expect(_wrapper.is('div')).toEqual(true)
   })
 
   it('renders with an <h2> that includes Counter label.', () => {
-    expect(_wrapper.find('h2').text()).to.match(/Counter:/)
+    expect(_wrapper.find('h2').text()).toMatch(/Counter:/)
   })
 
   it('renders {props.counter} at the end of the sample counter <h2>.', () => {
-    expect(_wrapper.find('h2').text()).to.match(/5$/)
+    expect(_wrapper.find('h2').text()).toMatch(/5$/)
     _wrapper.setProps({ counter: 8 })
-    expect(_wrapper.find('h2').text()).to.match(/8$/)
+    expect(_wrapper.find('h2').text()).toMatch(/8$/)
   })
 
   it('renders exactly two buttons.', () => {
-    expect(_wrapper.find('button')).to.have.length(2)
+    expect(_wrapper.find('button').length).toBe(2)
   })
 
   describe('Increment', () => {
@@ -44,11 +45,11 @@ describe('(Component) Counter', () => {
     })
 
     it('exists', () => {
-      expect(_button).to.exist()
+      expect(_button).toBeDefined()
     })
 
     it('is a primary button', () => {
-      expect(_button.hasClass('btn btn-primary')).to.be.true()
+      expect(_button.hasClass('btn btn-primary')).toBe(true)
     })
 
     it('Calls props.increment when clicked', () => {
@@ -69,11 +70,11 @@ describe('(Component) Counter', () => {
     })
 
     it('exists', () => {
-      expect(_button).to.exist()
+      expect(_button).toBeDefined()
     })
 
     it('is a secondary button', () => {
-      expect(_button.hasClass('btn btn-secondary')).to.be.true()
+      expect(_button.hasClass('btn btn-secondary')).toBe(true)
     })
 
     it('Calls props.doubleAsync when clicked', () => {

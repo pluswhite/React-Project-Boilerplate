@@ -1,7 +1,7 @@
 import React from 'react'
 import { Route, withRouter } from 'react-router-dom'
 import { updateLocation } from '../store/location'
-import CoreLayout from '../layouts/PageLayout/PageLayout'
+import PageLayout from '../layouts/PageLayout/PageLayout'
 import Home from './Home'
 import CounterRoute from './Counter'
 
@@ -13,10 +13,10 @@ const createRoutes = store => {
     })
 
     return (
-      <CoreLayout>
+      <PageLayout>
         <Route exact path='/' component={Home} />
         <Route path='/counter' component={CounterRoute(store)} />
-      </CoreLayout>
+      </PageLayout>
     )
   })
 }
