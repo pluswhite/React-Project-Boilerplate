@@ -20,8 +20,6 @@ describe('(Component) Counter', () => {
     _wrapper = shallow(<Counter {..._props} />)
   })
 
-  console.log(_wrapper)
-
   it('renders as a <div>.', () => {
     expect(_wrapper.is('div')).toEqual(true)
   })
