@@ -4,10 +4,6 @@ import { Provider } from 'react-redux'
 import PropTypes from 'prop-types'
 
 class App extends React.Component {
-  static propTypes = {
-    store: PropTypes.object.isRequired
-  }
-
   shouldComponentUpdate () {
     return false
   }
@@ -23,6 +19,10 @@ class App extends React.Component {
       </Provider>
     )
   }
+}
+
+App.propTypes = {
+  store: PropTypes.object.isRequired
 }
 
 export default App

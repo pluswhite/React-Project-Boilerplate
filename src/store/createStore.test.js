@@ -1,6 +1,6 @@
 import {
   default as createStore
-} from 'store/createStore'
+} from './createStore'
 
 describe('(Store) createStore', () => {
   let store
@@ -11,7 +11,7 @@ describe('(Store) createStore', () => {
 
   it('should have an empty asyncReducers object', () => {
     expect(typeof store.asyncReducers).toBe('object')
-    expect(store.asyncReducers).toBeUndefined()
+    expect(store.asyncReducers).toBeDefined()
   })
 
   describe('(Location)', () => {

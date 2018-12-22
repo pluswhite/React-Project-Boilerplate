@@ -2,6 +2,8 @@ import { applyMiddleware, compose, createStore as createReduxStore } from 'redux
 import thunk from 'redux-thunk'
 import makeRootReducer from './reducers'
 
+const __DEV__ = (process.env.NODE_ENV || 'development') === 'development'
+
 const createStore = (initialState = {}) => {
   // ======================================================
   // Middleware Configuration

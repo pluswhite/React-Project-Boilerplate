@@ -3,7 +3,7 @@ import {
   locationChange,
   updateLocation,
   default as locationReducer
-} from 'store/location'
+} from './location'
 import sinon from 'sinon'
 
 describe('(Internal Module) Location', () => {
