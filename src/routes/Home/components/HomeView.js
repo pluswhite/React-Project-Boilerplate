@@ -1,7 +1,7 @@
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
 import DuckImage from '../assets/Duck.jpg'
 import './HomeView.scss'
-class HomeView extends Component {
+class HomeView extends PureComponent {
   render () {
     return (
       <div>
