@@ -1,6 +1,7 @@
 module.exports = {
   collectCoverageFrom: [
-    '**/src/**/*.js',
+    'tests/**/*.js',
+    'src/**/*.js',
     '!src/store/**/*.test.js',
     '!tests/mocks/**/*.js',
     '!tests/enzyme-setup.js',
@@ -25,6 +26,6 @@ module.exports = {
   },
   setupTestFrameworkScriptFile: '<rootDir>/tests/test-bundler.js',
   setupFiles: ['raf/polyfill', '<rootDir>/tests/enzyme-setup.js'],
-  testRegex: 'src/.*\\.(test|spec)\\.js$',
+  testRegex: 'tests/.*\\.(test|spec)\\.js$',
   snapshotSerializers: ['enzyme-to-json/serializer'],
 }
