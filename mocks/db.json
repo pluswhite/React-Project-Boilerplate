@@ -1,0 +1,20 @@
+{
+  "list": [
+    {
+      "name": "Chrome",
+      "id": 1
+    },
+    {
+      "name": "Ubuntu",
+      "id": 2
+    },
+    {
+      "name": "Safari",
+      "id": 3
+    },
+    {
+      "name": "Firefox",
+      "id": 4
+    }
+  ]
+}

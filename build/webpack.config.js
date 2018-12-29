@@ -35,6 +35,16 @@ const config = {
       inProject(project.srcDir),
       'node_modules',
     ],
+    alias: {
+      cms: path.resolve(__dirname, '../src/components/'),
+      ctns: path.resolve(__dirname, '../src/containers/'),
+      assets: path.resolve(__dirname, '../src/assets/'),
+      store: path.resolve(__dirname, '../src/store/'),
+      cfg: path.resolve(__dirname, '../config/'),
+      api: path.resolve(__dirname, '../config/apiConfig'),
+      utils: path.resolve(__dirname, '../src/utils/'),
+      styles: path.resolve(__dirname, '../src/styles/')
+    },
     extensions: ['*', '.js', '.jsx', '.json'],
   },
   externals: project.externals,

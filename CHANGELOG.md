@@ -1,6 +1,20 @@
 Changelog
 =========
 
+.3.1.1
+-------------
+
+## Improvements
+* Added jest `^23.6.0` & coverage report for test
+* Added json-server for api mock
+
+### Features
+* Upgraded webpack to `^4.0.0` (config changed!)
+* Upgraded react to `^16.7.0`
+* Upgraded react-dom to `^16.7.0`
+* Upgraded react-redux to `^5.1.1`
+* Upgraded react-router to `^4.3.0`
+
 3.0.1
 -------------
 
