@@ -5,6 +5,7 @@ const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 const OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 // const ExtractTextPlugin = require('extract-text-webpack-plugin')
+const FriendlyError = require('friendly-errors-webpack-plugin')
 const project = require('../project.config')
 
 const inProject = path.resolve.bind(path, project.basePath)
@@ -149,7 +150,6 @@ config.module.rules.push({
 })
 
 config.plugins.push(extractStyles)
-
 // Images
 // ------------------------------------
 config.module.rules.push({
@@ -204,6 +204,8 @@ if (__DEV__) {
     new webpack.HotModuleReplacementPlugin(),
     // new webpack.NamedModulesPlugin()
   )
+
+  config.plugins.push(new FriendlyError())
 }
 
 // Bundle Splitting
