@@ -1,13 +1,13 @@
 const express = require('express');
 const webpack = require('webpack');
-const webpackDevMiddleware = require('webpack-dev-middleware');
 
 const app = express();
 const config = require('../webpack.config');
 const compiler = webpack(config);
 
 app.use(
-  webpackDevMiddleware(compiler, {
+  require('webpack-dev-middleware')(compiler, {
+    noInfo: true,
     publicPath: config.output.publicPath,
   }),
 );
