@@ -20,9 +20,14 @@ export interface ITodo {
   isCompleted: boolean;
 }
 
-export interface IAppState {
+export interface ITodoState {
   todos: ITodo[];
   newTodo: string;
   editTodo: string;
+}
+
+export interface IVisibilityFilterState {
   visibility: VisibilityType;
 }
+
+export interface IAppState extends ITodoState, IVisibilityFilterState {}

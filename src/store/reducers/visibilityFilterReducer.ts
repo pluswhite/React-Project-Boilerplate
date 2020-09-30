@@ -1,16 +1,13 @@
 import { VisibilityType } from '@/constants/todos';
 import { TodoActions } from '../actions/actions';
-import { Actions, IAppState } from '../actions/actionTypes';
+import { Actions, IVisibilityFilterState } from '../actions/actionTypes';
 
-export const initialState: IAppState = {
-  todos: [],
-  newTodo: '',
-  editTodo: '',
+export const initialState: IVisibilityFilterState = {
   visibility: VisibilityType.ALL,
 };
 
 const visibilityFitlerReducer = (
-  state: IAppState = initialState,
+  state: IVisibilityFilterState = initialState,
   action: TodoActions,
 ) => {
   console.log(action);

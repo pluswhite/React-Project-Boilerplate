@@ -1,8 +1,8 @@
 import { VisibilityType } from '@/constants/todos';
 import { TodoActions } from '../actions/actions';
-import { Actions, IAppState } from '../actions/actionTypes';
+import { Actions, ITodoState } from '../actions/actionTypes';
 
-export const initialState: IAppState = {
+export const initialState: ITodoState = {
   todos: [
     {
       id: '111',
@@ -12,10 +12,12 @@ export const initialState: IAppState = {
   ],
   newTodo: '',
   editTodo: '',
-  visibility: VisibilityType.ALL,
 };
 
-const todosReducer = (state: IAppState = initialState, action: TodoActions) => {
+const todosReducer = (
+  state: ITodoState = initialState,
+  action: TodoActions,
+) => {
   console.log(action);
   switch (action.type) {
     case Actions.CREATE_ITEM: {
