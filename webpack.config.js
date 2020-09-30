@@ -6,8 +6,8 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 module.exports = {
   mode: 'development',
   entry: [
+    'webpack-hot-middleware/client?path=/__webpack_hmr&timeout=20000',
     './src/index.tsx',
-    'webpack-hot-middleware/client?path=http://localhost:3000/__webpack_hmr&timeout=10000&reload=true',
   ],
   output: {
     filename: '[id].[hash:8].js',
@@ -36,11 +36,11 @@ module.exports = {
     ],
   },
   plugins: [
+    new webpack.HotModuleReplacementPlugin(),
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
       title: 'React Project Boilerplate',
       template: './public/index.html',
     }),
-    new webpack.HotModuleReplacementPlugin(),
   ],
 };

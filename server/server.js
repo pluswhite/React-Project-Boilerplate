@@ -11,6 +11,7 @@ app.use(
     publicPath: config.output.publicPath,
   }),
 );
+app.use(require('webpack-hot-middleware')(compiler));
 
 app.listen(3000, function () {
   console.log('App is listening on port 3000');
