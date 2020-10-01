@@ -37,6 +37,8 @@
   "author": "Eric Thsi <beefjava@gmail.com> (http://thsi.tech)",
   "license": "MIT",
   "dependencies": {
+    "classnames": "^2.2.6",
+    "nanoid": "^3.1.12",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-redux": "^7.2.1",
@@ -48,6 +50,7 @@
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.0.4",
     "@testing-library/user-event": "^12.1.6",
+    "@types/classnames": "^2.2.10",
     "@types/jest": "^26.0.14",
     "@types/react": "^16.9.49",
     "@types/react-dom": "^16.9.8",
