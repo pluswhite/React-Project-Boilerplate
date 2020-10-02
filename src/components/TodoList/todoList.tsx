@@ -1,8 +1,10 @@
 import React, { ChangeEvent, FC, useRef } from 'react';
 
-import TodoItem from '../TodoItem';
-import './todoList.scss';
+import TodoItem from '../../containers/TodoItemContainer';
 import { Actions, ITodo } from '@/store/actions/actionTypes';
+import { TodoActions } from '@/store/actions/actions';
+
+import './todoList.scss';
 
 export interface ITodoList {
   todos: ITodo[];
@@ -10,14 +12,12 @@ export interface ITodoList {
   handleTodoRemove?: (id: string) => void;
   handleTodoComplete?: (id: string) => void;
   handleTodoBlur?: (event: ChangeEvent<HTMLInputElement>) => void;
+  dispatch: (action: TodoActions) => void;
 }
 
 // TodoItem Interface
-const TodoList: FC = (props: ITodoList) => {
-  const {
-    state: { todos },
-    dispatch,
-  } = props;
+const TodoList: FC<ITodoList> = (props: ITodoList) => {
+  const { todos, dispatch } = props;
   const inputRef = useRef<HTMLInputElement>(null);
 
   const handleTodoToggleAll = () => {

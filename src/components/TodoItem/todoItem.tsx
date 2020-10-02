@@ -1,7 +1,6 @@
-import { ITodo } from '@/store/actions/actionTypes';
+import { TodoActions } from '@/store/actions/actions';
+import { Actions, ITodo } from '@/store/actions/actionTypes';
 import React, { ChangeEvent, FC, useContext } from 'react';
-import { AppContext } from '../../hooks/appContexts';
-import { Actions } from '../../reducers/appReducer';
 
 import './todoItem.scss';
 
@@ -11,6 +10,7 @@ export interface ITodoItem {
   handleTodoRemove?: (id: string) => void;
   handleTodoComplete?: (id: string) => void;
   handleTodoBlur?: (event: ChangeEvent<HTMLInputElement>) => void;
+  dispatch: (action: TodoActions) => void;
 }
 
 const TodoItem: FC<ITodoItem> = (props: ITodoItem) => {

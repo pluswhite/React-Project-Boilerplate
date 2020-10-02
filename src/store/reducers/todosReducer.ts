@@ -1,4 +1,3 @@
-import { VisibilityType } from '@/constants/todos';
 import { TodoActions } from '../actions/actions';
 import { Actions, ITodoState } from '../actions/actionTypes';
 
@@ -17,7 +16,7 @@ export const initialState: ITodoState = {
 const todosReducer = (
   state: ITodoState = initialState,
   action: TodoActions,
-) => {
+): ITodoState => {
   console.log(action);
   switch (action.type) {
     case Actions.CREATE_ITEM: {
@@ -77,12 +76,12 @@ const todosReducer = (
         todos: state.todos.filter((todo) => !todo.isCompleted),
       };
     }
-    case Actions.CHANGE_VISIBILITY: {
-      return {
-        ...state,
-        visibility: action.payload.visibility,
-      };
-    }
+    // case Actions.CHANGE_VISIBILITY: {
+    //   return {
+    //     ...state,
+    //     visibility: action.payload.visibility,
+    //   };
+    // }
     default:
       return state;
   }

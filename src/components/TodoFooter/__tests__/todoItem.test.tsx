@@ -3,6 +3,10 @@ import { render } from '@testing-library/react';
 import TodoFooter from '../todoFooter';
 import { ITodoForm } from '@/components/TodoForm/todoForm';
 
+import {
+  toBeInTheDocument,
+  toHaveClass,
+} from '@testing-library/jest-dom/matchers';
 const defaultProps: ITodoForm = {
   field: 'demo',
   className: 'demo',

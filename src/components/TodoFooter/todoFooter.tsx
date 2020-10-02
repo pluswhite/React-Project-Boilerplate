@@ -2,10 +2,21 @@ import React, { FC } from 'react';
 import classnames from 'classnames';
 
 import './todoFooter.scss';
-import { Actions } from '@/store/actions/actionTypes';
+import {
+  Actions,
+  IAppState,
+  ITodoState,
+  IVisibilityFilterState,
+} from '@/store/actions/actionTypes';
 import { VisibilityType } from '@/constants/todos';
+import { TodoActions } from '@/store/actions/actions';
 
-const TodoFooter: FC = (props: any) => {
+interface ITodoFooter {
+  state: IAppState;
+  dispatch: (action: TodoActions) => void;
+}
+
+const TodoFooter: FC<ITodoFooter> = (props: ITodoFooter) => {
   const {
     state: { todos, visibility },
     dispatch,

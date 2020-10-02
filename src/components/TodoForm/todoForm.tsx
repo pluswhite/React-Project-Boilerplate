@@ -1,31 +1,26 @@
 import { Actions, ITodo } from '@/store/actions/actionTypes';
-import React, {
-  ChangeEvent,
-  KeyboardEvent,
-  FC,
-  useRef,
-  useState,
-  useContext,
-} from 'react';
+import React, { ChangeEvent, KeyboardEvent, FC, useRef, useState } from 'react';
 import { nanoid } from 'nanoid';
 
 import './todoForm.scss';
+import { TodoActions } from '@/store/actions/actions';
 
 export interface ITodoForm {
-  // todos: ITodo[];
   handleTodoCreate?: (todo: ITodo) => void;
+  dispatch: (action: TodoActions) => void;
 }
+
 const TodoForm: FC<ITodoForm> = (props: ITodoForm) => {
-  // const { dispatch } = useContext(AppContext);
+  const { dispatch } = props;
   const inputRef = useRef<HTMLInputElement>(null);
   const [formState, setFormState] = useState('');
 
   const handleTodoCreate = (todo: ITodo) => {
     console.log(todo);
-    // dispatch({
-    //   type: Actions.CREATE_ITEM,
-    //   payload: todo,
-    // });
+    dispatch({
+      type: Actions.CREATE_ITEM,
+      payload: todo,
+    });
   };
 
   const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
