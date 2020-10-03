@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import { IAppState } from '@/store/actions/actionTypes';
 
-import TodoList from '../components/TodoList';
+import TodoList from '@components/TodoList';
 
 const mapStateToProps = (state: IAppState, ownProps: any) => ({
   state: state,

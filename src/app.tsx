@@ -8,6 +8,7 @@ import { IAppState } from './store/actions/actionTypes';
 import './styles/index.scss';
 import './styles/index.css';
 
+// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 function App(props: IAppState) {
   return (
     <div className="app">
