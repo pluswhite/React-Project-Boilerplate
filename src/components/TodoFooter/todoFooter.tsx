@@ -2,9 +2,9 @@ import React, { FC } from 'react';
 import classnames from 'classnames';
 
 import './todoFooter.scss';
-import { Actions, IAppState } from '@/store/actions/actionTypes';
-import { VisibilityType } from '@/constants/todos';
-import { TodoActions } from '@/store/actions/actions';
+import { Actions, IAppState } from '@store/actions/actionTypes';
+import { VisibilityType } from '@constants/todos';
+import { TodoActions } from '@store/actions/actions';
 
 interface ITodoFooter {
   state: IAppState;

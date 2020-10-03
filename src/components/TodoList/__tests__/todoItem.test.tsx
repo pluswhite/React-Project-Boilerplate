@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, fireEvent } from '@testing-library/react';
 import TodoList from '../todoList';
-import { ITodoForm } from '@/components/TodoForm/todoForm';
+import { ITodoForm } from '@components/TodoForm/todoForm';
 
 const defaultProps: ITodoForm = {
   field: 'demo',

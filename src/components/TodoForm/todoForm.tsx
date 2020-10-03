@@ -1,9 +1,9 @@
-import { Actions, ITodo } from '@/store/actions/actionTypes';
 import React, { ChangeEvent, KeyboardEvent, FC, useRef, useState } from 'react';
 import { nanoid } from 'nanoid';
 
+import { Actions, ITodo } from '@store/actions/actionTypes';
+import { TodoActions } from '@store/actions/actions';
 import './todoForm.scss';
-import { TodoActions } from '@/store/actions/actions';
 
 export interface ITodoForm {
   handleTodoCreate?: (todo: ITodo) => void;

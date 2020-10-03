@@ -1,7 +1,7 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 import TodoFooter from '../todoFooter';
-import { ITodoForm } from '@/components/TodoForm/todoForm';
+import { ITodoForm } from '@components/TodoForm/todoForm';
 
 const defaultProps: ITodoForm = {
   field: 'demo',

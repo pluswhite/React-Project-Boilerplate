@@ -1,8 +1,8 @@
 import React, { ChangeEvent, FC, useRef } from 'react';
 
-import TodoItem from '../../containers/TodoItemContainer';
-import { Actions, ITodo } from '@/store/actions/actionTypes';
-import { TodoActions } from '@/store/actions/actions';
+import TodoItem from '@containers/TodoItemContainer';
+import { Actions, ITodo } from '@store/actions/actionTypes';
+import { TodoActions } from '@store/actions/actions';
 
 import './todoList.scss';
 

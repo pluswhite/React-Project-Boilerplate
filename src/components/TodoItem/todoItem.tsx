@@ -1,6 +1,6 @@
-import { TodoActions } from '@/store/actions/actions';
-import { Actions, ITodo } from '@/store/actions/actionTypes';
-import React, { ChangeEvent, FC, useContext } from 'react';
+import React, { ChangeEvent, FC } from 'react';
+import { TodoActions } from '@store/actions/actions';
+import { Actions, ITodo } from '@store/actions/actionTypes';
 
 import './todoItem.scss';
 

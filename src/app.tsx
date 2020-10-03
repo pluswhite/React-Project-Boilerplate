@@ -1,9 +1,9 @@
 import React from 'react';
 
-import TodoList from './containers/TodoListContainer';
-import TodoForm from './containers/TodoFormContainer';
+import TodoList from '@containers/TodoListContainer';
+import TodoForm from '@containers/TodoFormContainer';
 
-import { IAppState } from './store/actions/actionTypes';
+import { IAppState } from '@store/actions/actionTypes';
 
 import './styles/index.scss';
 import './styles/index.css';

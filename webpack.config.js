@@ -23,8 +23,17 @@ module.exports = {
     extensions: ['.tsx', '.ts', '.js'],
     alias: {
       '@root': path.resolve(__dirname, 'src'),
+      '@config': path.resolve(__dirname, 'src/config/'),
+      '@styles': path.resolve(__dirname, 'src/styles/'),
       '@components': path.resolve(__dirname, 'src/components/'),
       '@store': path.resolve(__dirname, 'src/store/'),
+      '@containers': path.resolve(__dirname, 'src/containers/'),
+      '@constants': path.resolve(__dirname, 'src/constants/'),
+      '@services': path.resolve(__dirname, 'src/services/'),
+      '@middlewares': path.resolve(__dirname, 'src/middlewares/'),
+      '@helpers': path.resolve(__dirname, 'src/helpers/'),
+      '@api': path.resolve(__dirname, 'src/api/'),
+      '@types': path.resolve(__dirname, 'src/types/'),
     },
   },
   module: {

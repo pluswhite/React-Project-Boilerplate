@@ -17,8 +17,15 @@
     "baseUrl": "./",
     "paths": {
       "@/*": ["src/*"],
+      "@styles/*": ["src/styles/*"],
       "@components/*": ["src/components/*"],
-      "@store/*": ["src/store/*"]
+      "@containers/*": ["src/containers/*"],
+      "@store/*": ["src/store/*"],
+      "@constants/*": ["src/constants/*"],
+      "@services/*": ["src/services/*"],
+      "@middlewares/*": ["src/middlewares/*"],
+      "@helpers/*": ["src/helpers/*"],
+      "@api/*": ["src/api/*"]
     }
   },
   "include": ["src"],
