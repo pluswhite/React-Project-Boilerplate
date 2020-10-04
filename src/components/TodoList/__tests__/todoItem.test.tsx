@@ -1,17 +1,21 @@
 import React from 'react';
-import { render, fireEvent } from '@testing-library/react';
-import TodoList from '../todoList';
-import { ITodoForm } from '@components/TodoForm/todoForm';
+import { render } from '@testing-library/react';
+import TodoList, { ITodoList } from '../todoList';
 
-const defaultProps: ITodoForm = {
-  field: 'demo',
-  className: 'demo',
-  children: <>TodoForm</>,
+const defaultProps: ITodoList = {
+  todos: [
+    {
+      id: '123456789',
+      text: 'demo item',
+      isCompleted: true,
+    },
+  ],
+  dispatch: jest.fn(),
 };
 
 describe('TodoForm component test', () => {
   it('should render the default TodoForm correctly', () => {
-    const { getByTestId, getByText } = render(
+    const { getByTestId } = render(
       <TodoList data-testid="test-demo" {...defaultProps} />,
     );
     const elm = getByTestId('test-demo');

@@ -1,12 +1,16 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import TodoFooter from '../todoFooter';
-import { ITodoForm } from '@components/TodoForm/todoForm';
+import TodoFooter, { ITodoFooter } from '../todoFooter';
+import { VisibilityType } from '@/constants/todos';
 
-const defaultProps: ITodoForm = {
-  field: 'demo',
-  className: 'demo',
-  children: <>TodoForm</>,
+const defaultProps: ITodoFooter = {
+  state: {
+    todos: [],
+    newTodo: '',
+    editTodo: '',
+    visibility: VisibilityType.ALL,
+  },
+  dispatch: jest.fn(),
 };
 
 describe('TodoForm component test', () => {
@@ -17,6 +21,6 @@ describe('TodoForm component test', () => {
     const elm = getByTestId('test-demo');
 
     expect(elm).toBeInTheDocument();
-    expect(elm).toHaveClass('demo');
+    expect(elm).toHaveClass('footer');
   });
 });

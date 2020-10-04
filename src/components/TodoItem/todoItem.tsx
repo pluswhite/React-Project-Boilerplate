@@ -14,8 +14,7 @@ export interface ITodoItem {
 }
 
 const TodoItem: FC<ITodoItem> = (props: ITodoItem) => {
-  const { dispatch } = props;
-  const { todo, handleTodoBlur } = props;
+  const { todo, handleTodoBlur, dispatch, ...restProps } = props;
 
   const handleTodoToggle = () => {
     dispatch({
@@ -49,7 +48,7 @@ const TodoItem: FC<ITodoItem> = (props: ITodoItem) => {
   };
 
   return (
-    <div className="view todo-item">
+    <div className="view todo-item" {...restProps}>
       <input
         type="checkbox"
         checked={todo.isCompleted ? true : false}

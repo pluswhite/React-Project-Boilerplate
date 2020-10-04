@@ -6,7 +6,7 @@ import { Actions, IAppState } from '@store/actions/actionTypes';
 import { VisibilityType } from '@constants/todos';
 import { TodoActions } from '@store/actions/actions';
 
-interface ITodoFooter {
+export interface ITodoFooter {
   state: IAppState;
   dispatch: (action: TodoActions) => void;
 }
@@ -15,6 +15,7 @@ const TodoFooter: FC<ITodoFooter> = (props: ITodoFooter) => {
   const {
     state: { todos, visibility },
     dispatch,
+    ...restProps
   } = props;
   const isAllSelected = classnames({
     selected: visibility === VisibilityType.ALL,
@@ -45,7 +46,7 @@ const TodoFooter: FC<ITodoFooter> = (props: ITodoFooter) => {
   };
 
   return (
-    <footer className="footer">
+    <footer className="footer" {...restProps}>
       <span className="todo-count">
         <strong>{itemLeftCount}</strong> item left
       </span>

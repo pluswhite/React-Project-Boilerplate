@@ -6,17 +6,16 @@ import { TodoActions } from '@store/actions/actions';
 import './todoForm.scss';
 
 export interface ITodoForm {
-  handleTodoCreate?: (todo: ITodo) => void;
+  // handleTodoCreate?: (todo: ITodo) => void;
   dispatch: (action: TodoActions) => void;
 }
 
 const TodoForm: FC<ITodoForm> = (props: ITodoForm) => {
-  const { dispatch } = props;
+  const { dispatch, ...restProps } = props;
   const inputRef = useRef<HTMLInputElement>(null);
   const [formState, setFormState] = useState('');
 
   const handleTodoCreate = (todo: ITodo) => {
-    console.log(todo);
     dispatch({
       type: Actions.CREATE_ITEM,
       payload: todo,
@@ -47,7 +46,7 @@ const TodoForm: FC<ITodoForm> = (props: ITodoForm) => {
   };
 
   return (
-    <div className="todo-form">
+    <div className="todo-form" {...restProps}>
       <input
         className="new-todo"
         ref={inputRef}

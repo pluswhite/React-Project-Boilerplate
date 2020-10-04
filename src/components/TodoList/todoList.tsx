@@ -15,9 +15,8 @@ export interface ITodoList {
   dispatch: (action: TodoActions) => void;
 }
 
-// TodoItem Interface
 const TodoList: FC<ITodoList> = (props: ITodoList) => {
-  const { todos, dispatch } = props;
+  const { todos, dispatch, ...restProps } = props;
   const inputRef = useRef<HTMLInputElement>(null);
 
   const handleTodoToggleAll = () => {
@@ -31,7 +30,7 @@ const TodoList: FC<ITodoList> = (props: ITodoList) => {
   };
 
   return (
-    <div className="main">
+    <div className="main" {...restProps}>
       <input
         ref={inputRef}
         type="checkbox"
