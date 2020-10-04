@@ -1,4 +1,4 @@
-import { VisibilityType } from '@/constants/todos';
+import { VisibilityType } from '@constants/todos';
 import { TodoActions } from '../actions/actions';
 import { Actions, IVisibilityFilterState } from '../actions/actionTypes';
 

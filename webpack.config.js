@@ -20,7 +20,7 @@ module.exports = {
     hot: true,
   },
   resolve: {
-    extensions: ['.tsx', '.ts', '.js'],
+    extensions: ['.ts', '.tsx', '.js', '.json'],
     alias: {
       '@root': path.resolve(__dirname, 'src'),
       '@config': path.resolve(__dirname, 'src/config/'),
@@ -40,8 +40,13 @@ module.exports = {
     rules: [
       {
         test: /\.tsx?$/,
-        use: 'ts-loader',
         exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: ['@babel/preset-env'],
+          },
+        },
       },
       {
         test: /\.s?[c]ss/,
