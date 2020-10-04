@@ -81,8 +81,14 @@ module.exports = {
   // A map from regular expressions to module names or to arrays of module names that allow to stub out resources with a single module
   // moduleNameMapper: {},
   moduleNameMapper: {
-    '^@$': '<rootDir>/src$1',
-    '^@components$': '<rootDir>/src/components$1',
+    '@/(.*)': '<rootDir>/src/$1',
+    '@components/(.*)': '<rootDir>/src/components/$1',
+    '@containers/(.*)': '<rootDir>/src/containers/$1',
+    '@store/(.*)': '<rootDir>/src/store/$1',
+    '@constants/(.*)': '<rootDir>/src/constants/$1',
+    '@services/(.*)': '<rootDir>/src/services/$1',
+    '@middlewares/(.*)': '<rootDir>/src/middlewares/$1',
+    '@helpers/(.*)': '<rootDir>/src/helpers/$1',
     '\\.(css|less|scss|sass)$': 'identity-obj-proxy',
   },
 
