@@ -1,7 +1,7 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 import TodoFooter, { ITodoFooter } from '../todoFooter';
-import { VisibilityType } from '@/constants/todos';
+import { VisibilityType } from '@constants/todos';
 
 const defaultProps: ITodoFooter = {
   state: {
@@ -13,8 +13,8 @@ const defaultProps: ITodoFooter = {
   dispatch: jest.fn(),
 };
 
-describe('TodoForm component test', () => {
-  it('should render the default TodoForm correctly', () => {
+describe('TodoFooter component test', () => {
+  it('should render the default TodoFooter correctly', () => {
     const { getByTestId } = render(
       <TodoFooter data-testid="test-demo" {...defaultProps} />,
     );

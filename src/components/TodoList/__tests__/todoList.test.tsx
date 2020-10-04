@@ -13,8 +13,8 @@ const defaultProps: ITodoList = {
   dispatch: jest.fn(),
 };
 
-describe('TodoForm component test', () => {
-  it('should render the default TodoForm correctly', () => {
+describe('TodoList component test', () => {
+  it('should render the default TodoList correctly', () => {
     const { getByTestId } = render(
       <TodoList data-testid="test-demo" {...defaultProps} />,
     );
