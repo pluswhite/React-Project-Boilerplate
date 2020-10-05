@@ -1,15 +1,13 @@
-import React from 'react';
+import React, { FC } from 'react';
 
 import TodoList from '@containers/TodoListContainer';
 import TodoForm from '@containers/TodoFormContainer';
-
-import { IAppState } from '@store/actions/actionTypes';
+import TodoFooter from '@containers/TodoFooterContainer';
 
 import './styles/index.scss';
 import './styles/index.css';
 
-// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
-function App(props: IAppState) {
+const App: FC = () => {
   return (
     <div className="app">
       <div className="todoapp">
@@ -18,10 +16,10 @@ function App(props: IAppState) {
           <TodoForm />
         </header>
         <TodoList />
-        {props.todos.length > 0 && <TodoForm />}
+        <TodoFooter />
       </div>
     </div>
   );
-}
+};
 
 export default App;

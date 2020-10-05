@@ -16,6 +16,7 @@ export interface ITodoList {
 }
 
 const TodoList: FC<ITodoList> = (props: ITodoList) => {
+  console.log(props);
   const { todos, dispatch, ...restProps } = props;
   const inputRef = useRef<HTMLInputElement>(null);
 

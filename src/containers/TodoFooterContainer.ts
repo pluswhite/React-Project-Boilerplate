@@ -1,9 +1,11 @@
 import { connect } from 'react-redux';
-import { IAppState } from '@/store/actions/actionTypes';
 
 import TodoFooter from '../components/TodoFooter';
 
-const mapStateToProps = (state: IAppState, ownProps: any) => ({});
+const mapStateToProps = (state: any, ownProps: any) => ({
+  todos: state.todos.todos,
+  visibility: state.visibilityFilter.visibility,
+});
 
 const mapDispatchToProps = () => ({});
 

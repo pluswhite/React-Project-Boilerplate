@@ -9,7 +9,7 @@ export const initialState: IVisibilityFilterState = {
 const visibilityFitlerReducer = (
   state: IVisibilityFilterState = initialState,
   action: TodoActions,
-) => {
+): IVisibilityFilterState => {
   console.log(action);
   switch (action.type) {
     case Actions.CHANGE_VISIBILITY: {

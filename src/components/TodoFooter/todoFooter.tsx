@@ -2,21 +2,19 @@ import React, { FC } from 'react';
 import classnames from 'classnames';
 
 import './todoFooter.scss';
-import { Actions, IAppState } from '@store/actions/actionTypes';
+import { Actions, IAppState, ITodo } from '@store/actions/actionTypes';
 import { VisibilityType } from '@constants/todos';
 import { TodoActions } from '@store/actions/actions';
 
 export interface ITodoFooter {
   state: IAppState;
+  todos: ITodo[];
+  visibility: VisibilityType;
   dispatch: (action: TodoActions) => void;
 }
 
 const TodoFooter: FC<ITodoFooter> = (props: ITodoFooter) => {
-  const {
-    state: { todos, visibility },
-    dispatch,
-    ...restProps
-  } = props;
+  const { todos, visibility, dispatch, ...restProps } = props;
   const isAllSelected = classnames({
     selected: visibility === VisibilityType.ALL,
   });
@@ -44,6 +42,10 @@ const TodoFooter: FC<ITodoFooter> = (props: ITodoFooter) => {
       type: Actions.CLEAR_COMPLETED,
     });
   };
+
+  if (todos.length === 0) {
+    return null;
+  }
 
   return (
     <footer className="footer" {...restProps}>
