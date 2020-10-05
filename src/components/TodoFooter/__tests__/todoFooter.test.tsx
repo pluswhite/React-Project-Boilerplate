@@ -4,12 +4,14 @@ import TodoFooter, { ITodoFooter } from '../todoFooter';
 import { VisibilityType } from '@constants/todos';
 
 const defaultProps: ITodoFooter = {
-  state: {
-    todos: [],
-    newTodo: '',
-    editTodo: '',
-    visibility: VisibilityType.ALL,
-  },
+  todos: [
+    {
+      id: '123456789',
+      text: 'demo item',
+      isCompleted: true,
+    },
+  ],
+  visibility: VisibilityType.ALL,
   dispatch: jest.fn(),
 };
 
