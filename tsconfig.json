@@ -28,6 +28,6 @@
       "@api/*": ["src/api/*"]
     }
   },
-  "include": ["src"],
+  "include": ["src", "types/*"],
   "exclude": ["dist"]
 }
