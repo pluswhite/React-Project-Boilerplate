@@ -1,25 +1,26 @@
-import React, { FC } from 'react';
+import React from 'react';
+import logo from './logo.svg';
+import './App.css';
 
-import TodoList from '@containers/TodoListContainer';
-import TodoForm from '@containers/TodoFormContainer';
-import TodoFooter from '@containers/TodoFooterContainer';
-
-import './styles/index.scss';
-import './styles/index.css';
-
-const App: FC = () => {
+function App() {
   return (
-    <div className="app">
-      <div className="todoapp">
-        <header className="header">
-          <h1>Todos</h1>
-          <TodoForm />
-        </header>
-        <TodoList />
-        <TodoFooter />
-      </div>
+    <div className="App">
+      <header className="App-header">
+        <img src={logo} className="App-logo" alt="logo" />
+        <p>
+          Edit <code>src/App.tsx</code> and save to reload.
+        </p>
+        <a
+          className="App-link"
+          href="https://reactjs.org"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Learn React
+        </a>
+      </header>
     </div>
   );
-};
+}
 
 export default App;
